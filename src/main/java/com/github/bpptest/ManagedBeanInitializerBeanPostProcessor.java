@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MainComponentInitializerBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
+public class ManagedBeanInitializerBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
 
     private ManagedComponent managedComponent;
 
