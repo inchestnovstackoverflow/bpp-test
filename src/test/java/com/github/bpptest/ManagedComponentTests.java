@@ -9,20 +9,20 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
+@SpringBootTest
 @ContextConfiguration(classes = MainConfiguration.class)
-class MainComponentTests {
+class ManagedComponentTests {
 
     @Autowired
-    private MainComponent mainComponent;
-
-    @MockBean
     private ManagedComponent managedComponent;
+
+    @Autowired
+    private EmptyAutowireComponent emptyAutowireComponent;
 
     @Test
     void contextLoads() {
-        mainComponent.foo();
-        Mockito.verify(managedComponent).foo();
+        managedComponent.invokeAll();
+        Mockito.verify(emptyAutowireComponent).invoke();
     }
 
 }
